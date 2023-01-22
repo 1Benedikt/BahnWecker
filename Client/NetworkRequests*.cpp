@@ -4,7 +4,7 @@
 namespace Network {
 
    
-
+//https://stackoverflow.com/questions/9786150/save-curl-content-result-into-a-string-in-c
     void init_string(struct string* s) {
         s->len = 0;
         s->ptr = (char*)malloc(s->len + 1);
@@ -14,7 +14,7 @@ namespace Network {
         }
         s->ptr[0] = '\0';
     }
-
+//https://stackoverflow.com/questions/9786150/save-curl-content-result-into-a-string-in-c
     size_t writefunc(void* ptr, size_t size, size_t nmemb, struct string* s)
     {
         size_t new_len = s->len + size * nmemb;
