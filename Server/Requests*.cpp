@@ -40,8 +40,8 @@ void init_string(struct string* s) {
 bool RequestDataFromServer(const char EVA[8], const char Date[7], const char Hour[3], RequestType ReqType, struct tm tm)
 {
 
-    std::string ClientId = "DB-Client-Id: 99cc64b2f46f9ac154580c291446e583";
-    std::string DbApiKey = "DB-Api-Key: dd2b2e4c468d70225fd0e94bbb1ead8d";
+    std::string ClientId = "API_KEY_EINFÜGEN";
+    std::string DbApiKey = "API_KEY_EINFÜGEN";
 
     CURL* req = curl_easy_init();
     struct string response;
