@@ -69,6 +69,7 @@ namespace Client
         std::cout << "[+] Socket Descriptor " << SocketToServer << "\n";
     }
 
+    //https://dzone.com/articles/fun-with-netbios-name-service-and-computer-browser
     void encodeNetBiosChar(
         char* buffer,
         char c
@@ -77,7 +78,7 @@ namespace Client
         buffer[0] = 'A' + (c >> 4);
         buffer[1] = 'A' + (c & 0x0f);
     }
-
+    //https://dzone.com/articles/fun-with-netbios-name-service-and-computer-browser
    void  encodeNetBiosName(
         char* buffer,
         const char* name,
@@ -204,7 +205,7 @@ namespace Client
             {
                 std::cout << "[-] Socket konnte nicht erstellt werden\n";
                 if (WSAGetLastError() == 10013) {
-                    std::cout << "[-] Programm muss als Administrator ausgeführt werden, da RAW-Sockets verwendet werden.\n";
+                    std::cout << "[-] Programm muss als Administrator ausgefÃ¼hrt werden, da RAW-Sockets verwendet werden.\n";
                 }
             }
 
@@ -264,7 +265,7 @@ namespace Client
 
 
         }
-
+//Generiert mit ChatGPT
         uint16_t calculate_checksum(ICMPHeader* header, int length) {
             uint32_t sum = 0;
             uint16_t* ptr = (uint16_t*)header;
@@ -320,7 +321,7 @@ namespace Client
                 {
                     std::cout << "[-] Socket konnte nicht erstellt werden\n";
                     if (WSAGetLastError() == 10013) {
-                        std::cout << "[-] Programm muss als Administrator ausgeführt werden, da RAW-Sockets verwendet werden.\n";
+                        std::cout << "[-] Programm muss als Administrator ausgefÃ¼hrt werden, da RAW-Sockets verwendet werden.\n";
                     }
                 }
 
@@ -391,7 +392,7 @@ namespace Client
             header.IPH.Identification = 4324; //Einfach eine beliebige Nummer
             header.IPH.FlagsAndFragment = 0;
             header.IPH.CheckSum = 0;
-            header.IPH.Protocol = Protokoll; //Standardmäßig ICMP;
+            header.IPH.Protocol = Protokoll; //StandardmÃ¤ÃŸig ICMP;
             header.IPH.Source = inet_addr(IP.data());
 
             return true;
@@ -424,7 +425,7 @@ namespace Client
             if (sock == INVALID_SOCKET)
             {
                 if (WSAGetLastError() == 10013) {
-                    std::cout << "[-] Programm muss als Administrator ausgeführt werden, da RAW-Sockets verwendet werden.\n";
+                    std::cout << "[-] Programm muss als Administrator ausgefÃ¼hrt werden, da RAW-Sockets verwendet werden.\n";
                 }
                 else
                 {
@@ -481,11 +482,11 @@ namespace Client
                 std::cout << iResult << "  " << Buf << " \n";
                 if (iResult > 0)
                 {
-                    if (ResponseA[IPHEADER_LENGTH + 1] == ICMP_REPLY) //Überprüfen ob Reply eine ICMP_REPLY ist
+                    if (ResponseA[IPHEADER_LENGTH + 1] == ICMP_REPLY) //ÃœberprÃ¼fen ob Reply eine ICMP_REPLY ist
                     {
                         ReturnDevices.push_back(Devices[j]);
                   
-                        ResponseA[IPHEADER_LENGTH + 1] == 0xFF; //Im Response Buffer, das Byte welches anzeigt was es für eine Nachrichtentyp ist zurücksetzen
+                        ResponseA[IPHEADER_LENGTH + 1] == 0xFF; //Im Response Buffer, das Byte welches anzeigt was es fÃ¼r eine Nachrichtentyp ist zurÃ¼cksetzen
                     }
                 }
             }
@@ -598,7 +599,7 @@ namespace Client
 
             }
             
-            ReturnMac = str.str(); //Vollständiger String ffffffB8ffffff27ffffffEBffffff96ffffffD4
+            ReturnMac = str.str(); //VollstÃ¤ndiger String ffffffB8ffffff27ffffffEBffffff96ffffffD4
             std::cout << ReturnMac << "\n";
             for (int i = 2; i < 15; i += 3)
             {
@@ -673,7 +674,7 @@ namespace Client
             }
             else
             {
-                std::cout << "[-] VendorList Datei konnte nicht geöffnet werden\n";
+                std::cout << "[-] VendorList Datei konnte nicht geÃ¶ffnet werden\n";
                 return "";
             }
             std::cout << "[-] Keinen Vendor zur MAC Adresse: " << MAC << " gefunden\n";
